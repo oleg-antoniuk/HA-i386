@@ -114,15 +114,20 @@ nano /etc/acpi/lid.sh
 </details></h6>
 
 ** **
-### 3. Installing HomeAssistant Supervised
+### 3. Install OS Agent, Docker and Dependencies
 ** **
-Originally:
 
-https://sprut.ai/article/ustanovka-home-assistant-na-netbuki-i-starye-pk
 ```
-sudo apt install software-properties-common python3.9 python3.9-dev python3.9-venv python3-pip libffi-dev libssl-dev
-sudo apt autoremove -y 
-export PATH=$PATH:/usr/sbin
+sudo -i
+
+apt update && sudo apt upgrade -y && sudo apt autoremove -y
+
+apt --fix-broken install
+
+apt install apparmor jq wget curl udisks2 libglib2.0-bin network-manager dbus lsb-release systemd-journal-remote systemd-resolved -y
+
+sudo apt-get install docker.io
+
 ```
 **Getting dependencies:**
 ```
