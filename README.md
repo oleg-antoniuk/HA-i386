@@ -34,14 +34,6 @@ apt update
 apt upgrade
 apt install sudo acpi-support vbetool openssh-server 
 ```
-
-Adding user `nu100` we created during installation to `sudo` group:
-```
-usermod -aG sudo nu100
-```
-
-_Great! Now we can (and must) use `nu100` user for system login and in remote connection credentials, e.g. ssh-client._
-
 ---
 
 **Tweaks**
