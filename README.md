@@ -149,9 +149,9 @@ sudo apt install -y docker.io
 ```
 **Installing HomeAssistant OS Agent:**
 ```
-sudo apt install wget unzip udisks2
-wget https://github.com/xvrfr/homeassistant/raw/main/os-agent_1.6.0_linux_i386.deb
-sudo dpkg -i os-agent_1.6.0_linux_i386.deb
+wget https://github.com/home-assistant/os-agent/releases/download/1.6.0/os-agent_1.6.0_linux_i386.deb
+
+dpkg -i os-agent_1.6.0_linux_i386.deb
 ```
 
 **And finally! Execute modified Supervised installation script:**
