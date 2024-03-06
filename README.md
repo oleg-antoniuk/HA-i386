@@ -116,6 +116,9 @@ nano /etc/acpi/lid.sh
 ** **
 ### 3. Install OS Agent, Docker and Dependencies
 ** **
+You will now install the OS Agent for Home Assistant. It is used for Home Assistant OS and Home Assistant Supervised installation types and it allows the Home Assistant Supervisor to communicate with the host operating system.
+
+2.1) In terminal (or connected to your machine via SSH using Putty - see Step 3.3 for info), run the following commands to update the Debian OS, install Docker and the required dependencies for the OS Agent and the Supervised installer. Execute the following commands one at a time.
 
 ```
 sudo -i
