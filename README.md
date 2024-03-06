@@ -1,5 +1,3 @@
-# HA-i386
-
 # Home Assistant Supervised installation for i386
 
 
@@ -14,7 +12,7 @@
 
 ---
 
-### 1. Installing Debian 11 netinst non-free
+### 1. Installing Debian 12
 
 ** **
 
@@ -22,83 +20,11 @@
 
 _Automatic, separate partitions for /, /var, /tmp, /home_
 
-
-**Users (just for reference):**
-
-> root: pj***r3
-
-> nu100: 
-
-
-**GUI and system utilities:**
-
-_Uncheck everything._
-
-**Waiting for installation process to complete, reboot system.**
-
 ** **
 
 ### 2. First console login (as root)
 
 ** **
-
-**Connecting to the Internet**
-
-_WiFi driver, `wpasupplicant` and `wireless-tools` have already been implemented into `netinst non-free`:_
-
-Shell command:
-
-```Shell
-ip a
-```
-
-So, now we know that there were 3 interfaces found in our system:
-```
-lo     - virual loopback
-enp1s0 - cable LAN, down
-wlp2s0 - wireless, down
-```
-
-Network interfaces are down, and as we will connect via cable LAN, we should enable it first:
-
-```
-ip link set enp1s0 up
-```
-
-After enabling LAN we have to start DHCP-client:
-```
-dhclient enp1s0
-```
-
-Internet via LAN is ready to go, but to have the connection persistent after reboots we need to append to `/etc/network/interfaces`:
-```
-echo "" >> /etc/network/interfaces
-echo "auto enp1s0" >> /etc/network/interfaces
-echo "iface enp1s0 inet dhcp" >> /etc/network/interfaces
-```
-Setting up Internet via WiFi is not as complicated in fact:
-```
-wpa_passphrase "YOUR_SSID" password > /etc/wpa_supplicant.conf
-cp /lib/systemd/system/wpa_supplicant.service /etc/systemd/system/
-systemctl enable wpa_supplicant.service
-```
-And append `/etc/network/interfaces` for persistence as we did it for LAN:
-```
-echo "" >> /etc/network/interfaces
-echo "auto wlp2s0" >> /etc/network/interfaces
-echo "iface wlp2s0 inet dhcp" >> /etc/network/interfaces
-```
-Next, we are to edit wireless service file with any file editor, e.g. `nano`:
-```
-nano /etc/systemd/system/wpa_supplicant.service
-```
-And make its part look like this:
-```
-ExecStart=/sbin/wpa_supplicant -u -s -c /etc/wpa_supplicant.conf -i wlp2s0
-Restart=always
-...
-#Alias=dbus-fi.w1.wpa_supplicant1.service
-```
 
 **Advanced system setup**
 
