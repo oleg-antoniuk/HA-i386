@@ -136,6 +136,24 @@ sudo apt-get install docker.io
 ```
 sudo apt install apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager socat bash 
 ```
+```
+apt install \
+apparmor \
+cifs-utils \
+curl \
+dbus \
+jq \
+libglib2.0-bin \
+lsb-release \
+network-manager \
+nfs-common \
+systemd-journal-remote \
+systemd-resolved \
+udisks2 \
+wget -y
+
+```
+
 Disabling ModemManager
 ```
 systemctl disable ModemManager 
