@@ -172,22 +172,8 @@ wget https://github.com/home-assistant/os-agent/releases/download/1.6.0/os-agent
 dpkg -i os-agent_1.6.0_linux_i386.deb
 ```
 
-**And finally! Execute modified Supervised installation script:**
+**And finally! Execute modified Supervised installation:**
 ```
-wget https://github.com/xvrfr/homeassistant/raw/main/supervised-installer.fixed.sh
-chmod 777 supervised-installer.fixed.sh
-sudo /home/nu100/supervised-installer.fixed.sh
-```
-If the script completes without errors, there will be web address to connect to HomeAssistant.
-** **
-**Pay attention that the first start will take about 20 minutes, be patient, please.**
-** **
-Many thanks to Kanga-who for the initial script.
-The rest parts found:
-```
-URL_HA="https://github.com/home-assistant/cli/releases/download/4.15.1/ha_i386"    
-URL_BIN_HASSIO="https://raw.githubusercontent.com/remlabm/hassio-installer/master/files/hassio-supervisor"
-URL_BIN_APPARMOR="https://raw.githubusercontent.com/remlabm/hassio-installer/master/files/hassio-apparmor"
-URL_SERVICE_HASSIO="https://raw.githubusercontent.com/remlabm/hassio-installer/master/files/hassio-supervisor.service"
-URL_SERVICE_APPARMOR="https://raw.githubusercontent.com/remlabm/hassio-installer/master/files/hassio-apparmor.service"
+wget -O homeassistant-supervised.deb https://github.com/oleg-antoniuk/HA-i386/releases/download/HA/homeassistant-supervised.deb
+apt install ./homeassistant-supervised.deb
 ```
