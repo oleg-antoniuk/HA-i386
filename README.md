@@ -177,3 +177,11 @@ dpkg -i os-agent_1.6.0_linux_i386.deb
 wget -O homeassistant-supervised.deb https://github.com/oleg-antoniuk/HA-i386/releases/download/HA/homeassistant-supervised.deb
 apt install ./homeassistant-supervised.deb
 ```
+### TROUBLESHOOTING
+
+-Not Privileged-
+
+Ignore the unhealthy check by using: " ha jobs options --ignore-conditions healthy " in the terminal
+    Reboot
+    Update as usual.
+    Reset the settings: " ha jobs reset " and " ha supervisor restart. " in the terminal.
